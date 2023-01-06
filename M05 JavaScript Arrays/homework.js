@@ -9,32 +9,43 @@ function devolverPrimerElemento(array) {
 function devolverUltimoElemento(array) {
    // Retornar el último elemento del arreglo recibido por parámetro.
    // Tu código:
-   // 
-   const ultimoElemento = array[array.length - 1]
-   return ultimoElemento
+   //     
+   return array[array.length -1]
 }
 
 function obtenerLargoDelArray(array) {
    // Retornar la longitud del arreglo recibido por parámetro.
    // Tu código:
+   return array.length
 }
 
 function incrementarPorUno(array) {
    // El arreglo recibido por parámetro contiene números.
    // Retornar un arreglo con los elementos incrementados en +1.
    // Tu código:
+   let arr = [];
+   for (let i = 0; i < array.length; i++) {
+      arr.push(array[i] + 1) 
+   }
+   return arr;
 }
 
 function agregarItemAlFinalDelArray(array, elemento) {
    // Agrega el "elemento" al final del arreglo recibido.
    // Retorna el arreglo.
    // Tu código:
+   // push() ingresa el elemento al final del arreglo
+   array.push(elemento)
+   return array;
 }
 
 function agregarItemAlComienzoDelArray(array, elemento) {
    // Agrega el "elemento" al comienzo del arreglo recibido.
    // Retorna el arreglo.
    // Tu código:
+   // unshift() ingresa el elmento al inicio del arreglo
+   array.unshift(elemento)
+   return array
 }
 
 function dePalabrasAFrase(palabras) {
@@ -43,6 +54,7 @@ function dePalabrasAFrase(palabras) {
    // con un espacio entre cada palabra.
    // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'.
    // Tu código:
+   return palabras.join(' ');
 }
 
 function arrayContiene(array, elemento) {
