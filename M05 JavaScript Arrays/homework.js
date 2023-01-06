@@ -248,7 +248,6 @@ function continueStatement(num) {
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
    let numeroRestulado = [];
-
    for (let i = 0; i < 10; i++) {
       if(i+1 === 5){
          continue;
