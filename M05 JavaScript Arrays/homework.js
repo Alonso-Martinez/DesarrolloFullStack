@@ -54,6 +54,7 @@ function dePalabrasAFrase(palabras) {
    // con un espacio entre cada palabra.
    // Ejemplo: ['Hello', 'world!'] -> 'Hello world!'.
    // Tu código:
+   // El método join() une todos los elementos de una matriz (o un objeto similar a una matriz) en una cadena y devuelve esta cadena.
    return palabras.join(' ');
 }
 
@@ -61,24 +62,49 @@ function arrayContiene(array, elemento) {
    // Verifica si el elemento existe dentro del arreglo recibido.
    // Retornar True si está, o False si no está.
    // Tu código:
+  for(let i = 0; i < array.length -1; i++){
+   if(elemento === array[i]){
+      return true;
+   }
+  }
+  return false;
 }
 
 function agregarNumeros(arrayOfNums) {
    // El parámetro "arrayOfNums" debe ser un arreglo de números.
    // Suma todos los elementos y retorna el resultado.
    // Tu código:
+   let suma = 0;
+   for(let i = 0; i < arrayOfNums.length; i ++){
+      suma = suma + arrayOfNums[i];
+   }
+   return suma;
 }
 
 function promedioResultadosTest(resultadosTest) {
    // El parámetro "resultadosTest" es un arreglo de números.
    // Itera (en un bucle) los elementos del arreglo y devuelve el promedio de las notas.
    // Tu código:
+   let cantidadResultados = resultadosTest.length; // devuelve la cantidad de elementos que se encuentran dentro del arreglo
+   let sumatoria = 0;
+   for(let i = 0; i < resultadosTest.length; i++){
+      sumatoria = sumatoria + resultadosTest[i]
+   }
+   return sumatoria/cantidadResultados;
 }
 
 function numeroMasGrande(arrayOfNums) {
    // El parámetro "arrayOfNums" es un arreglo de números.
    // Retornar el número más grande.
    // Tu código:
+   // La función Math.max() retorna el mayor de cero o más números dados como parámetros de entrada, o NaN si cualquier parámetro no es un número y no puede ser convertido en uno.
+   let mayor = arrayOfNums[0];
+   for(let i = 0; i < arrayOfNums.length; i++){
+      if(mayor < arrayOfNums[i]){
+         mayor = arrayOfNums[i];
+      }
+    }
+    return mayor;
 }
 
 function multiplicarArgumentos() {
@@ -86,11 +112,25 @@ function multiplicarArgumentos() {
    // Si no se pasan argumentos retorna 0. Si se pasa un argumento, simplemente retórnalo.
    // [PISTA]: "arguments" es un arreglo.
    // Tu código:
+   if(arguments.length === 0) return 0;
+   if(arguments.length === 1) return arguments[0];
+   let producto = 1;
+   for (let i = 0; i < arguments.length; i++) {
+      producto = producto * arguments[i];
+   }
+   return producto;
 }
 
 function cuentoElementos(array) {
    // Desarrolla una función que retorne la cantidad de elementos del arreglo cuyo valor sea mayor que 18.
    // Tu código:
+    let mayor18 = 0;
+   for (let i = 0; i < array.length; i++) {
+      if(array[i] > 18){
+         mayor18 ++; // le suma 1 al contador
+      }
+   }
+   return mayor18;
 }
 
 function diaDeLaSemana(numeroDeDia) {
@@ -98,18 +138,40 @@ function diaDeLaSemana(numeroDeDia) {
    // Realiza una función que, dado el número del día de la semana, retorne: "Es fin de semana"
    // si el día corresponde a "Sábado" o "Domingo", y "Es dia laboral" en caso contrario.
    // Tu código:
+   /*
+   if (numeroDeDia === 1 || numeroDeDia === 7){
+      return 'Es fin de semana'
+   }else{
+      return 'Es dia laboral'
+   }
+   */
+  if(numeroDeDia === 1 || numeroDeDia === 7) 
+      return 'Es fin de semana'  
+   return 'Es dia laboral'
 }
 
 function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar True si el entero inicia con 9 y False en otro caso.
    // Tu código:
+   // Devemos convertir primero el numero a string para poder acceder al primer valor .toString()
+   let numeroString = num.toString();
+   if(numeroString[0] === '9')
+      return true;
+   return false; 
 }
 
 function todosIguales(array) {
    // Si todos los elementos del arreglo son iguales, retornar True.
    // Caso contrario retornar False.
    // Tu código:
+   let primero = array[0];
+   for(let i = 0; i < array.length; i ++){
+      if(primero !== array[i]){
+         return false;
+      }
+   }
+   return true;
 }
 
 function mesesDelAño(array) {
@@ -117,6 +179,16 @@ function mesesDelAño(array) {
    // "Marzo" y "Noviembre", guardarlos en un nuevo arreglo y retornarlo.
    // Si alguno de los meses no está, retornar el string: "No se encontraron los meses pedidos".
    // Tu código:
+   let meses = [];
+   for(let i = 0; i < array.length; i ++){
+      if(array[i] === 'Enero' || array[i] === 'Marzo' || array[i] === 'Noviembre'){
+         meses.push(array[i]);
+      }
+   if(meses.length === 3)
+      return meses;
+   }
+   return 'No se encontraron los meses pedidos';
+   
 }
 
 function tablaDelSeis() {
@@ -129,6 +201,13 @@ function mayorACien(array) {
    // La función recibe un arreglo con enteros entre 0 y 200.
    // Recorrerlo y retornar un arreglo con todos los valores mayores a 100 (no incluye el 100).
    // Tu código:
+   let valores = [];
+   for (let i = 0; i < array.length; i++) {
+      if(array[i] > 100){
+         valores.push(array[i]);
+      }
+   }
+   return valores;
 }
 
 /* ----------------------------------------------------------------------------------
@@ -142,6 +221,19 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   let numerosResultado = [];
+   for (let i = 0; i < 10; i++) {
+      num += 2;
+      numerosResultado.push(num);
+      if(num === i +1){
+         break;
+      }
+   }
+
+   //if(i < 10){
+      // return 'Se interrumpió la ejecución';
+   //}
+   return numerosResultado;
 }
 
 function continueStatement(num) {
@@ -151,6 +243,16 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
+   let numeroRestulado = [];
+
+   for (let i = 0; i < 10; i++) {
+      if(i+1 === 5){
+         continue;
+      }
+      num += 2
+      numeroRestulado.push(num);   
+   }
+   return numeroRestulado;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
