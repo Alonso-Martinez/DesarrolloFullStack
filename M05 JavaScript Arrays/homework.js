@@ -195,6 +195,11 @@ function tablaDelSeis() {
    // Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
    // La función devuelve un arreglo con los resultados de la tabla de multiplicar del 6 en orden creciente.
    // Tu código:
+   let resultados = [];
+   for (let i = 0; i <=10 ; i++) {
+      resultados.push(6 * i);
+   }
+   return resultados;
 }
 
 function mayorACien(array) {
@@ -222,17 +227,16 @@ function breakStatement(num) {
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
    let numerosResultado = [];
-   for (let i = 0; i < 10; i++) {
+   for (var i = 0; i < 10; i++) {
       num += 2;
       numerosResultado.push(num);
       if(num === i +1){
          break;
       }
    }
-
-   //if(i < 10){
-      // return 'Se interrumpió la ejecución';
-   //}
+   if(i < 10){
+      return 'Se interrumpió la ejecución'
+   }
    return numerosResultado;
 }
 
